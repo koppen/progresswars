@@ -9,7 +9,7 @@ function animateProgressBars() {
 
 function setProgress(bar, percentage, callback) {
 	$(bar).animate({width: '' + percentage + '%'}, 1000, callback);
-}
+};
 
 function setTaskProgress(percentage) {
 	if (percentage >= 100) {
@@ -19,12 +19,15 @@ function setTaskProgress(percentage) {
 		callback = null;
 	};
 	setProgress('.task .bar .progress', percentage, callback);
-}
+};
 
 function setExperienceProgress(percentage) {
 	setProgress('.experience .bar .progress', percentage);
-}
+};
 
 function setLevel(level) {
-	$('.level .value').text(level);
-}
+	var current_level = $(".level .value").text();
+	if (current_level != level) {
+		$(".level .value").text(level).hide('puff', {percent:500}, 1000).fadeIn();
+	}
+};
