@@ -19,3 +19,4 @@ gem "rails", "3.0.0.beta"
 # group :test do
 #   gem "webrat"
 # end
+gem "rspec-rails", '>= 2.0.0.a7'
