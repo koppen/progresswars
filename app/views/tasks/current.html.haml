@@ -17,5 +17,5 @@
       of
       = @task.clicks_to_complete
 
-  = button_to('Do task', :action => 'perform')
+  = button_to('Do task', {:action => 'perform'}, :remote => true)
   = link_to('Next task', :action => 'create')
