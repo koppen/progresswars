@@ -15,3 +15,6 @@
           .bar
             = progress_bar(@task.level_progress)
     = yield
+
+  - javascript_tag do
+    $(document).ready(function() { setInterval('animateProgressBars()', 100); })

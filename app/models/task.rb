@@ -16,7 +16,7 @@ class Task < OpenStruct
   end
 
   def calculate_experience_for_next_level
-    ((self.level + 1) ** 2).ceil
+    ((self.level + 1) ** 2.5).ceil
   end
 
   def task_progress
