@@ -1,3 +1,6 @@
+@import compass/css3/border_radius.sass
+@import compass/css3/box_shadow.sass
+
 body
 	background-color: #000000
 	color: #ffeedd
@@ -6,5 +9,9 @@ body
 	
 
 .bar
+	border: 2px solid #3366cc
+	+border-radius(5px)
 	.progress
 		background-color: #3366cc
+		+border-radius(3px)
+		margin: 2px
