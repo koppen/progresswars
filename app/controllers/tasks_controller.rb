@@ -8,7 +8,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    create_new_task
+    start_new_task
     redirect_to :action => :current
   end
 
@@ -16,59 +16,45 @@ class TasksController < ApplicationController
     @task.clicks += 1
     @task.experience += @task.level
 
-    @progress = (100.0 * @task.clicks / @task.clicks_to_complete).round
+    @task_progress = @task.task_progress
 
-    create_new_task if @task.clicks >= @task.clicks_to_complete
+    # start_new_task if @task.clicks >= @task.clicks_to_complete
     ding if @task.experience >= @task.experience_for_next_level
 
     respond_to do |format|
       format.js 
       format.html { redirect_to :action => :current }
     end
-
-    
   end
 
 private
 
   def load_task_from_cookie
-    @task = OpenStruct.new
-    @task.name = cookies[:task] || build_task
-    @task.clicks = (cookies[:clicks] || 0).to_i
-    @task.level = (cookies[:level] || 1).to_i
-    @task.experience = (cookies[:experience] || 0).to_i
-
-    # Calculated values
-    
-    # We require level + 1 clicks to complete a task
-    @task.clicks_to_complete = @task.level + 1
-    @task.experience_for_next_level = (@task.level ** 2.5).ceil
+    @task = Task.new(cookies)
+    logger.debug { "Loaded task: #{@task.inspect}" }
   end
 
   def save_task_to_cookie
-    cookies[:task] = @task.name
+    logger.debug { "Saving task: #{@task.inspect}" }
+
+    cookies[:name] = @task.name
     cookies[:clicks] = @task.clicks
+    cookies[:clicks_to_complete] = @task.clicks_to_complete
     cookies[:level] = @task.level
     cookies[:experience] = @task.experience
+    cookies[:experience_for_next_level] = @task.experience_for_next_level
   end
 
   def ding
     @task.level += 1
+    @task.experience -= @task.experience_for_next_level
+    @task.experience_for_next_level = @task.calculate_experience_for_next_level
   end
 
-  def create_new_task
-    @task.name = build_task
+  def start_new_task
+    @task.name = @task.random_name
     @task.clicks = 0
-  end
-
-  def build_task
-    verbs = ['ambush', 'collect', 'fish for', 'grow', 'harvest', 'hijack', 'plunder', 'raid', 'repel', 'sell', 'hijack', 'steal', 'chase away', 'rob', 'rough up']
-    nouns = ['a drug runner', 'chinese merchant ships', 'dealers', 'eggplant', 'silk traders', 'soy beans', 'the Yakuza', 'guns', 'a semi', 'a tanker truck', 'thugs', 'your family', 'protection money', 'the warehouse']
-
-    phrase = []
-    phrase << verbs.rand
-    phrase << nouns.rand
-    phrase.join(' ').titlecase
+    @task.clicks_to_complete = @task.level + 1
   end
 
 end

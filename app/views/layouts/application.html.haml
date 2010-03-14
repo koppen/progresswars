@@ -7,6 +7,11 @@
     = stylesheet_link_tag 'application'
     = csrf_meta_tag
   %body
-    .notices
-      = notice
+    .section
+      .level
+        Level:
+        %span.value= @task.level
+      .experience
+        .bar
+          = progress_bar(@task.level_progress)
     = yield
