@@ -8,8 +8,13 @@
     = stylesheet_link_tag 'application'
     = csrf_meta_tag
   %body
-    .section
-      .level
+    .header
+      .branding.section
+        .logo
+          = link_to 'Progress Wars', root_url
+        .tagline
+          = tagline
+      .level.section
         Level
         .value= @task.level
         .experience
