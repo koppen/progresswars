@@ -1,0 +1,18 @@
+.level
+  Level:
+  = @task.level
+.experience
+  Experience: 
+  = @task.experience
+  of
+  = @task.experience_for_next_level
+
+%h1
+  = @task.name
+
+.bar
+  .progress{:style => "width: #{(100.0 * @task.clicks / @task.clicks_to_complete).round}%"}
+    = @task.clicks
+
+= button_to('Do task', :action => 'perform')
+= link_to('Next task', :action => 'create')
