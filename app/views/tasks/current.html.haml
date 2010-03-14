@@ -7,5 +7,5 @@
     .bar
       =progress_bar((100.0 * @task.clicks / @task.clicks_to_complete).round)
 
-  = button_to('Do task', {:action => 'perform'}, :remote => true)
+  = link_to('Do task', {:action => 'perform'}, :remote => true, :class => 'button')
   = link_to('Next task', :action => 'create')

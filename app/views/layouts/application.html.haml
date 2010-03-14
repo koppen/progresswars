@@ -11,7 +11,7 @@
       .level
         Level:
         %span.value= @task.level
-      .experience
-        .bar
-          = progress_bar(@task.level_progress)
+        .experience
+          .bar
+            = progress_bar(@task.level_progress)
     = yield
