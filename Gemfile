@@ -20,3 +20,4 @@ gem "rails", "3.0.0.beta"
 #   gem "webrat"
 # end
 gem "rspec-rails", '>= 2.0.0.a7'
+gem "haml", '=2.2.20'
