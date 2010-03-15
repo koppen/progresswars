@@ -1,8 +1,7 @@
 !!!
 %html
   %head
-    %title
-      = controller.action_name
+    %title Progress Wars
     = javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js'
     = javascript_include_tag 'rails', 'application'
     = stylesheet_link_tag 'application'
@@ -23,6 +22,15 @@
           .bar
             = progress_bar(@task.level_progress)
     = yield
+
+    .footer
+      = link_to 'Progress Wars', root_url
+      is a parody by
+      = link_to 'Jakob Skjerning', 'http://mentalized.net'
+      from
+      = link_to 'Substance Lab', 'http://substancelab.com'
+      &mdash; you should totally
+      = link_to 'follow him on Twitter', 'http://twitter.com/mentalizer'
 
   - javascript_tag do
     $(document).ready(function() { setInterval('animateProgressBars()', 100); })
