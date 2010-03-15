@@ -7,7 +7,7 @@ module TasksHelper
   def tagline
     [
       'Watching progress bars change has never been this much fun',
-      'The ultimate game of being better than all your friends at making progress bars change',
+      'The ultimate game of being better than all your friends at filling progress bars',
       'Countless hours of fun',
       'Just one more click...',
       'No mafias, no vikings, no pirates - just pure, uninterrupted progress bars',
