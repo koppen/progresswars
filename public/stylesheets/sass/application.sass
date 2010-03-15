@@ -1,0 +1,115 @@
+@import compass/css3/border_radius.sass
+@import compass/css3/box_shadow.sass
+
+body
+	background: #84330c url(/images/sunburst.jpg) 50% -155px no-repeat
+	color: #ffeedd
+	font-family: arial, helvetica, sans-serif
+	font-size: 12px
+	text-align: center
+	text-shadow: rgba(0,0,0,0.5) 1px 1px 1px
+
+h1
+	color: #62100c
+	font-size: 2em
+	letter-spacing: -0.05em
+	margin: 0
+	font-family: georgia, times, serif
+	font-weight: normal
+	text-shadow: none
+
+.bar
+	background: rgba(0,0,0,0.5)
+	border: 2px solid #9c4e00
+	border-color: rgba(255,200,0,0.8)
+	+border-radius(6px)
+	+box-shadow(rgba(0,0,0,0.5), 0, 0, 1em)
+	margin: 1em auto
+	padding: 2px
+
+	.progress
+		background: #ffd100 url(/images/progressbar.png) 0 0 repeat
+		+border-radius(3px)
+
+.task
+	.progress
+		height: 2em
+
+.section
+	// background-color: #fde7a8
+	margin-left: auto
+	margin-right: auto
+	margin-top: 145px
+	width: 500px
+
+.header
+	.section
+		margin: 0
+		position: absolute
+		top: 1em
+
+	.branding
+		color: rgba(255,255,255,0.7)
+		left: 1em
+		text-align: left
+		width: 200px
+		
+		.logo a
+			color: #ffffff
+			font-weight: bold
+			text-decoration: none
+
+	.level
+		font-weight: bold
+		position: absolute
+		right: 1em
+		width: 100px
+	
+		.bar
+			margin-top: 0.3em
+
+		.value
+			font-size: 1.2em
+			left: 50%
+			margin-left: -1.5em
+			position: absolute
+			text-align: center
+			top: 1.4em
+			width: 3em
+	
+.button
+	background-color: #990000
+	background: -moz-linear-gradient(top, #990000, #4f0000)
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#990000), to(#4f0000))
+	border: 2px solid #4f0000
+	+border-radius(7px)
+	+box-shadow(rgba(0,0,0,0.5), 0, 0, 1em)
+	color: #ffd100
+	display: block
+	font-size: 1.2em
+	font-weight: bold
+	height: 2.5em
+	margin: 1em auto
+	line-height: 2.5em
+	text-decoration: none
+	text-shadow: rgba(0,0,0,0.5) 1px 1px 2px
+	vertical-align: middle
+	width: 15em
+
+.button:hover
+	color: #ffffff
+	// +box-shadow(rgba(250,200,100,0.9), 0, 0, 1em)
+	+box-shadow(rgba(255,225,200,0.9), 0, 0, 1em)
+
+.footer
+	bottom: 1em
+	color: rgba(255,255,255,0.5)
+	left: 0
+	position: absolute
+	text-align: center
+	width: 100%
+
+	a
+		color: rgba(255,255,255,0.8)
+		&:hover
+			color: rgba(255,255,255,1)
