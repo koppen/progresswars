@@ -40,7 +40,7 @@ class Hassle::Compiler
         [input, css_location(input)]
       end
     else
-      default_location = File.join(options[:css_location], "sass")
+      default_location = File.join(options[:template_location])
       options[:template_location] = {default_location => css_location(default_location)}
     end
   end
@@ -63,6 +63,7 @@ class Hassle::Compiler
   def compile
     normalize
     prepare
+    puts options.inspect
     Sass::Plugin.update_stylesheets
   end
 end
