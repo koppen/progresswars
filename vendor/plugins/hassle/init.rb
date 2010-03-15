@@ -1,4 +1,3 @@
-# if Rails.env.production?
-  puts "Loading hassle"
+if Rails.env.production?
   Rails::Application.middleware.use Hassle
-# end
+end
