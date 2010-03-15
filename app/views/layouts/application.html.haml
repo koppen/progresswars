@@ -26,13 +26,13 @@
     .footer
       = link_to 'Progress Wars', root_url
       is a parody by
-      = link_to 'Jakob Skjerning', 'http://mentalized.net'
+      = link_to 'Jakob Skjerning', 'http://mentalized.net', :class => 'link_to_mentalized'
       from
-      = link_to 'Substance Lab', 'http://substancelab.com'
+      = link_to 'Substance Lab', 'http://substancelab.com', :class => 'link_to_substancelab'
       &mdash; you should totally
-      = link_to 'follow him on Twitter', 'http://twitter.com/mentalizer'
+      = link_to 'follow him on Twitter', 'http://twitter.com/mentalizer', :class => 'link_to_twitter'
 
   = render :partial => 'layouts/google_analytics'
 
   - javascript_tag do
-    $(document).ready(function() { setInterval('animateProgressBars()', 100); })
+    $(document).ready(function() { trackGoals(); setInterval('animateProgressBars()', 100); })

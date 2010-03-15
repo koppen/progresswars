@@ -11,7 +11,8 @@ module TasksHelper
       'Countless hours of fun',
       'Just one more click...',
       'No mafias, no vikings, no pirates - just pure, uninterrupted progress bars',
-      'Personalized missions - just for you'
+      'Personalized missions - just for you',
+      'You just know the next level is much more awesome'
     ].rand
   end
 
