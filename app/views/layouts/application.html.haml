@@ -35,7 +35,4 @@
   = render :partial => 'layouts/google_analytics'
 
   - javascript_tag do
-    $(document).ready(function() { 
-    trackGoals(); 
-    setInterval('animateProgressBars()', 100); 
-    })
+    $(document).ready(function() { trackGoals(); setInterval('animateProgressBars()', 100); })
