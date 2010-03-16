@@ -28,8 +28,8 @@ class Task < OpenStruct
   end
 
   def random_name
-    verbs = ['ambush', 'collect', 'fish for', 'grow', 'harvest', 'hijack', 'plunder', 'raid', 'repel', 'sell', 'hijack', 'steal', 'chase away', 'rob', 'rough up']
-    nouns = ['a drug runner', 'chinese merchant ships', 'dealers', 'eggplant', 'silk traders', 'soy beans', 'the Yakuza', 'guns', 'a semi', 'a tanker truck', 'thugs', 'your family', 'protection money', 'the warehouse']
+    verbs = ['aggrevate', 'ambush', 'annoy', 'collect', 'feed', 'fish for', 'grow', 'harvest', 'hijack', 'plunder', 'raid', 'repel', 'ruffle', 'sell', 'slay', 'hijack', 'steal', 'tickle', 'chase away', 'rob', 'rough up']
+    nouns = ['a drug runner', 'a small rat', 'chinese merchant ships', 'dealers', 'eggplant', 'enchanted motorcycle hunter-stranglers wielding invisible bandyclefs', 'feathers', 'the ninja queen', 'silk traders', 'soy beans', 'the Yakuza', 'guns', 'a semi', 'a tanker truck', 'thugs', 'your family', 'protection money', 'the warehouse']
 
     phrase = []
     phrase << verbs.rand

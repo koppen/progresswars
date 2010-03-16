@@ -12,7 +12,8 @@ module TasksHelper
       'Just one more click...',
       'No mafias, no vikings, no pirates - just pure, uninterrupted progress bars',
       'Personalized missions - just for you',
-      'You just know the next level is much more awesome'
+      'You just know the next level is much more awesome',
+      "It's a great way to fill bars"
     ].rand
   end
 
