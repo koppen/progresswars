@@ -1,43 +1,39 @@
-function animateProgressBars() {
-	var current_position = $('.progress').css('background-position').split(' ');
-	var offset_x = parseInt(current_position[0], 10);
-	var offset_y = parseInt(current_position[1], 10);
+UI = function() {};
+$.extend(UI, {
+	animateProgressBars: function () {
+		var current_position = $('.progress').css('background-position').split(' ');
+		var offset_x = parseInt(current_position[0], 10);
+		var offset_y = parseInt(current_position[1], 10);
 
-	var new_position = '' + ((offset_x - 1) % 22) + 'px ' + offset_y + 'px';
-	$('.progress').css('background-position', new_position);
-};
+		var new_position = '' + ((offset_x - 1) % 22) + 'px ' + offset_y + 'px';
+		$('.progress').css('background-position', new_position);
+	},
 
-function setProgress(bar, percentage, callback) {
-	$(bar).animate({width: '' + percentage + '%'}, 1000, callback);
-};
+	setProgress: function (bar, percentage, callback) {
+		$(bar).animate({width: '' + percentage + '%'}, 1000, callback);
+	},
 
-function updateTaskProgress(percentage) {
-	if (percentage >= 100) {
-		// Get a new task after animating the progress bar
-		callback = function() { document.location = '/tasks/create'; };
-	} else {
-		callback = null;
-	};
-	setProgress('.task .bar .progress', percentage, callback);
-};
+	updateTaskProgress: function (percentage) {
+		if (percentage >= 100) {
+			// Get a new task after animating the progress bar
+			callback = function() { document.location = '/tasks/create'; };
+		} else {
+			callback = null;
+		};
+		UI.setProgress('.task .bar .progress', percentage, callback);
+	},
 
-function updateExperienceProgress(percentage) {
-	setProgress('.experience .bar .progress', percentage);
-};
+	updateExperienceProgress: function (percentage) {
+		UI.setProgress('.experience .bar .progress', percentage);
+	},
 
-function updateLevel(level) {
-	var current_level = $(".level .value").text();
-	if (current_level != level) {
-		$(".level .value").text(level).hide('puff', {percent:500}, 1000).fadeIn();
+	updateLevel: function (level) {
+		var current_level = $(".level .value").text();
+		if (current_level != level) {
+			$(".level .value").text(level).hide('puff', {percent:500}, 1000).fadeIn();
+		}
 	}
-};
-
-function trackGoals() {
-	$('.button').click(function() { if (pageTracker) { pageTracker._trackPageview('/g/button_clicked'); }});
-	$('.link_to_mentalized').click(function() { if (pageTracker) { pageTracker._trackPageview('/g/link_to_mentalized'); }});
-	$('.link_to_substancelab').click(function() { if (pageTracker) { pageTracker._trackPageview('/g/link_to_substancelab'); }});
-	$('.link_to_twitter').click(function() { if (pageTracker) { pageTracker._trackPageview('/g/link_to_twitter'); }});
-};
+});
 
 Task = function() {};
 $.extend(Task, {
@@ -62,7 +58,7 @@ $.extend(Task, {
 		Task.level(Task.level() + 1);
 		Task.experience(Task.experience() - Task.experienceForNextLevel());
 		Task.experienceForNextLevel(Task.calculateExperienceForLevel(Task.level()));
-		updateLevel(Task.level());
+		UI.updateLevel(Task.level());
 	},
 	
 	clicks: function(newValue) {
@@ -121,9 +117,16 @@ $.extend(Task, {
 			Task.ding();
 		};
 
-		updateTaskProgress(Task.progress());
-		updateExperienceProgress(Task.levelProgress());
+		UI.updateTaskProgress(Task.progress());
+		UI.updateExperienceProgress(Task.levelProgress());
 
 		return false;
 	}
 });
+
+function trackGoals() {
+	$('.button').click(function() { if (pageTracker) { pageTracker._trackPageview('/g/button_clicked'); }});
+	$('.link_to_mentalized').click(function() { if (pageTracker) { pageTracker._trackPageview('/g/link_to_mentalized'); }});
+	$('.link_to_substancelab').click(function() { if (pageTracker) { pageTracker._trackPageview('/g/link_to_substancelab'); }});
+	$('.link_to_twitter').click(function() { if (pageTracker) { pageTracker._trackPageview('/g/link_to_twitter'); }});
+};
