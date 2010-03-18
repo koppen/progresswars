@@ -9,6 +9,18 @@ $.extend(UI, {
 		$('.progress').css('background-position', new_position);
 	},
 
+	button: function() {
+		return $('.button');
+	},
+
+	disableButton: function() {
+		UI.button().addClass('disabled').css('opacity', 0.3).animate({opacity: 1}, 1000, function() { UI.enableButton(); });
+	},
+
+	enableButton: function() {
+		UI.button().removeClass('disabled');
+	},
+
 	setProgress: function (bar, percentage, callback) {
 		$(bar).animate({width: '' + percentage + '%'}, 1000, callback);
 	},
@@ -18,7 +30,7 @@ $.extend(UI, {
 			// Get a new task after animating the progress bar
 			callback = function() { document.location = '/tasks/create'; };
 		} else {
-			callback = null;
+			callback = function() { UI.enableButton(); };
 		};
 		UI.setProgress('.task .bar .progress', percentage, callback);
 	},
@@ -110,6 +122,11 @@ $.extend(Task, {
 	},
 
 	perform: function() {
+		if (UI.button().hasClass('disabled')) {
+			return false;
+		}
+		UI.disableButton();
+
 		Task.clicks(Task.clicks() + 1);
 		Task.experience(Task.experience() + Task.level());
 
