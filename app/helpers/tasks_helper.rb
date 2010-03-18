@@ -13,7 +13,9 @@ module TasksHelper
       'No mafias, no vikings, no pirates - just pure, uninterrupted progress bars',
       'Personalized missions - just for you',
       'You just know the next level is much more awesome',
-      "It's a great way to fill bars"
+      "It's a great way to fill bars",
+      "Like Progress Quest for people who aren't old",
+      "Fame and fortune awaits ye, stranger"
     ].rand
   end
 
