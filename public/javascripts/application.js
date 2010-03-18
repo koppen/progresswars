@@ -60,8 +60,8 @@ $.extend(Task, {
 
 	ding: function() {
 		Task.level(Task.level() + 1);
-		Task.experience(Task.experience() - Task.experience_for_next_level());
-		Task.experience_for_next_level(Task.calculateExperienceForLevel(Task.level()));
+		Task.experience(Task.experience() - Task.experienceForNextLevel());
+		Task.experienceForNextLevel(Task.calculateExperienceForLevel(Task.level()));
 		updateLevel(Task.level());
 	},
 	
@@ -73,7 +73,7 @@ $.extend(Task, {
 		}
 	},
 
-	clicks_to_complete: function(newValue) {
+	clicksToComplete: function(newValue) {
 		if (newValue) {
 			return Task.setValue('clicks_to_complete', newValue);
 		} else {
@@ -89,7 +89,7 @@ $.extend(Task, {
 		}
 	},
 
-	experience_for_next_level: function(newValue) {
+	experienceForNextLevel: function(newValue) {
 		if (newValue) {
 			return Task.setValue('experience_for_next_level', newValue);
 		} else {
@@ -106,18 +106,18 @@ $.extend(Task, {
 	},
 	
 	levelProgress: function() {
-		return Math.round(100.0 * Task.experience() / Task.experience_for_next_level());
+		return Math.round(100.0 * Task.experience() / Task.experienceForNextLevel());
 	},
 
 	progress: function() {
-		return Math.round(100.0 * Task.clicks() / Task.clicks_to_complete());
+		return Math.round(100.0 * Task.clicks() / Task.clicksToComplete());
 	},
 
 	perform: function() {
 		Task.clicks(Task.clicks() + 1);
 		Task.experience(Task.experience() + Task.level());
 
-		if (Task.experience() >= Task.experience_for_next_level()) {
+		if (Task.experience() >= Task.experienceForNextLevel()) {
 			Task.ding();
 		};
 
