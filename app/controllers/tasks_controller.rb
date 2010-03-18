@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   after_filter :save_task_to_cookie
 
   def current
+    start_new_task if @task.clicks >= @task.clicks_to_complete
   end
 
   def create
