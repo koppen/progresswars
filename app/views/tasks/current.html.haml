@@ -10,4 +10,4 @@
 
   = link_to('Perform mission', {:action => 'perform'}, :class => 'button')
   - javascript_tag do
-    $('.button').click(function() { return performTask() })
+    $('.button').click(function() { return Task.perform() })
