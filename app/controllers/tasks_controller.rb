@@ -13,18 +13,7 @@ class TasksController < ApplicationController
   end
 
   def perform
-    @task.clicks += 1
-    @task.experience += @task.level
-
-    @task_progress = @task.task_progress
-
-    # start_new_task if @task.clicks >= @task.clicks_to_complete
-    ding if @task.experience >= @task.experience_for_next_level
-
-    respond_to do |format|
-      format.js 
-      format.html { redirect_to :action => :current }
-    end
+    redirect_to :action => :current
   end
 
 private
