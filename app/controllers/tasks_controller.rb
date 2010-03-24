@@ -27,12 +27,12 @@ private
   def save_task_to_cookie
     logger.debug { "Saving task: #{@task.inspect}" }
 
-    cookies[:name] = @task.name
-    cookies[:clicks] = @task.clicks
-    cookies[:clicks_to_complete] = @task.clicks_to_complete
-    cookies[:level] = @task.level
-    cookies[:experience] = @task.experience
-    cookies[:experience_for_next_level] = @task.experience_for_next_level
+    cookies.permanent[:name] = @task.name
+    cookies.permanent[:clicks] = @task.clicks
+    cookies.permanent[:clicks_to_complete] = @task.clicks_to_complete
+    cookies.permanent[:level] = @task.level
+    cookies.permanent[:experience] = @task.experience
+    cookies.permanent[:experience_for_next_level] = @task.experience_for_next_level
   end
 
   def ding
