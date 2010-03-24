@@ -22,6 +22,12 @@ $.extend(UI, {
 	},
 
 	setProgress: function (bar, percentage, callback) {
+		if (percentage < 0) {
+			percentage = 0;
+		};
+		if (percentage > 100) {
+			percentage = 100;
+		};
 		$(bar).animate({width: '' + percentage + '%'}, 1000, callback);
 	},
 
