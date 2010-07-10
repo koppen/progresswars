@@ -3,12 +3,13 @@ require File.expand_path('../boot', __FILE__)
 # Pick the frameworks you want:
 # require "active_record/railtie"
 require "action_controller/railtie"
-require "action_mailer/railtie"
-require "active_resource/railtie"
-require "rails/test_unit/railtie"
+# require "action_mailer/railtie"
+# require "active_resource/railtie"
+# require "rails/test_unit/railtie"
 
-# Auto-require default libraries and those for the current Rails environment.
-Bundler.require :default, Rails.env
+# If you have a Gemfile, require the gems listed there, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module ProgressWars
   class Application < Rails::Application
@@ -31,7 +32,7 @@ module ProgressWars
     # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
+    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
     # Configure generators values. Many other options are available, be sure to check the documentation.
@@ -41,7 +42,10 @@ module ProgressWars
     #   g.test_framework  :test_unit, :fixture => true
     # end
 
+    # Configure the default encoding used in templates for Ruby 1.9.
+    config.encoding = "utf-8"
+
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters << :password
+    config.filter_parameters += [:password]
   end
 end

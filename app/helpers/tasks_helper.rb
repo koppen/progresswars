@@ -1,7 +1,7 @@
 module TasksHelper
 
   def progress_bar(progress = 0)
-    content_tag 'div', '&nbsp;', :class => 'progress', :style => "width: #{progress.round}%"
+    content_tag(:div, '&nbsp;'.html_safe, :class => 'progress', :style => "width: #{progress.round}%")
   end
 
   def tagline
@@ -16,7 +16,7 @@ module TasksHelper
       "It's a great way to fill bars",
       "Like Progress Quest for people who aren't old",
       "Fame and fortune awaits ye, stranger"
-    ].rand
+    ].sample
   end
 
 end

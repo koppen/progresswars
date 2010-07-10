@@ -32,8 +32,8 @@ class Task < OpenStruct
     nouns = ['a drug runner', 'a small rat', 'chinese merchant ships', 'dealers', 'eggplant', 'enchanted motorcycle hunter-stranglers wielding invisible bandyclefs', 'feathers', 'pants', 'people', 'the ninja queen', 'silk traders', 'soy beans', 'the Yakuza', 'guns', 'a semi', 'a tanker truck', 'thugs', 'your family', 'protection money', 'the warehouse']
 
     phrase = []
-    phrase << verbs.rand
-    phrase << nouns.rand
+    phrase << verbs.sample
+    phrase << nouns.sample
     phrase.join(' ').titlecase
   end
 
