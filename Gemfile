@@ -20,5 +20,4 @@ gem "rails", "3.0.5"
 #   gem "webrat"
 # end
 gem "haml", '=2.2.20'
-gem "formtastic"
 gem "hassle", :git => 'https://github.com/jasoncodes/hassle.git'
