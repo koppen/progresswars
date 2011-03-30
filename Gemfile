@@ -22,3 +22,4 @@ gem "rails", "3.0.0.beta4"
 gem "rspec-rails", '>= 2.0.0.a7'
 gem "haml", '=2.2.20'
 gem "formtastic"
+gem "hassle", :git => 'https://github.com/jasoncodes/hassle.git'
