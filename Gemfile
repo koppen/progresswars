@@ -19,4 +19,3 @@ gem "rails", "~> 3.0.11"
 #   gem "webrat"
 # end
 gem "haml", '=2.2.20'
-gem "hassle", :git => 'https://github.com/jasoncodes/hassle.git'
