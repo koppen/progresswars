@@ -1,3 +1,6 @@
+//= require jquery.cookie
+//= require rails
+
 UI = function() {};
 $.extend(UI, {
 	animateProgressBars: function () {
