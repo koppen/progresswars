@@ -7,6 +7,8 @@ gem "rails", "~> 3.2.0"
 gem "haml-rails"
 gem 'jquery-rails'
 
+gem 'puma'
+
 group :assets do
   gem 'sass-rails'
   gem 'uglifier',     '>= 1.0.3'
