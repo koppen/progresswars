@@ -8,6 +8,6 @@
     .bar
       =progress_bar((100.0 * @task.clicks / @task.clicks_to_complete).round)
 
-  = link_to('Perform mission', {:action => 'perform'}, :class => 'button')
+  = link_to('Perform mission', perform_task_path, :class => 'button')
   = javascript_tag do
     $('.button').click(function() { return Task.perform() })

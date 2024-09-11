@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
+  get "tasks/perform" => "tasks#perform", as: :perform_task
+  get "tasks/create" => "tasks#create", as: :create_task
+
   # Defines the root path route ("/")
   root "tasks#current"
 end
