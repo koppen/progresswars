@@ -1,8 +1,8 @@
 require "ostruct"
 
 class TasksController < ApplicationController
-  before_filter :load_task_from_cookie
-  after_filter :save_task_to_cookie
+  before_action :load_task_from_cookie
+  after_action :save_task_to_cookie
 
   def current
     start_new_task if @task.clicks >= @task.clicks_to_complete
