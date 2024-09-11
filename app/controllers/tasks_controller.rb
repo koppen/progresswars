@@ -1,4 +1,4 @@
-require 'ostruct'
+require "ostruct"
 
 class TasksController < ApplicationController
   before_filter :load_task_from_cookie
@@ -10,11 +10,11 @@ class TasksController < ApplicationController
 
   def create
     start_new_task
-    redirect_to :action => :current
+    redirect_to action: :current
   end
 
   def perform
-    redirect_to :action => :current
+    redirect_to action: :current
   end
 
 private
@@ -46,5 +46,4 @@ private
     @task.clicks = 0
     @task.clicks_to_complete = @task.level + 1
   end
-
 end
