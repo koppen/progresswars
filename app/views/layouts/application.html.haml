@@ -2,7 +2,7 @@
 %html
   %head
     %title Progress Wars
-    = javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js'
+    = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js'
     = javascript_include_tag 'application'
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = csrf_meta_tag
@@ -36,11 +36,11 @@
         = render "layouts/ad"
       = link_to 'Progress Wars', root_url
       is a parody by
-      = link_to 'Jakob Skjerning', 'http://mentalized.net', :class => 'link_to_mentalized', :title => 'Expert web developer specialized in Ruby on Rails'
+      = link_to 'Jakob Skjerning', 'https://mentalized.net', :class => 'link_to_mentalized', :title => 'Expert web developer specialized in Ruby on Rails'
       from
-      = link_to 'Substance Lab', 'http://substancelab.com', :class => 'link_to_substancelab', :title => 'Freelance webdevelopment for startups and small/medium businesses'
+      = link_to 'Substance Lab', 'https://substancelab.com', :class => 'link_to_substancelab', :title => 'Freelance webdevelopment for startups and small/medium businesses'
       &mdash; you should totally
-      = link_to 'follow him on Twitter', 'http://twitter.com/mentalizer', :class => 'link_to_twitter'
+      = link_to 'follow him on Twitter', 'https://twitter.com/mentalizer', :class => 'link_to_twitter'
 
   = render :partial => 'layouts/google_analytics'
 
